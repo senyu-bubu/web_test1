@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>todos</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <style  type="text/css"> 
+.a_css{
+    text-decoration:none;   
+    size:18px;
+}
+
+.bg{
+    width: 100%;
+    height: 1500px;
+    background-image: url(zhi.jpg);
+    
+}
+.tr_css{
+    background-color: white;
+    size: 30px;
+}
+.tr_css:hover
+{       
+        padding: 0px;
+        margin: 0px;
+        border: 0px solid #000;
+        box-shadow:1px 1px 10px 1px rgba(0,0,0,0.4);        
+}
+.sou{
+    position: absolute;  
+    top: 30%;   
+    left: 40%;
+}
+.right{
+    float: right;
+    width:135px;
+}
+/* .tb_css{} */
+    /* overflow:hidden; */
+
+</style>
+</head>
+<body>
+  <div class="bg">
+    <div class="sou">
+    <table  id="tl" >
+      <tbody >
+        <tr>
+          <input  type="text" id="ii" value="want to do">         
+        </tr>
+      </tbody>
+    </table>
+</div>
+</div>
+
+<script>
+  var $tl=$("#tl");
+  //tianjia
+  $("#ii").keydown(function(){
+    if(event.keyCode ==13){
+    $("<tr class='tr_css'></tr>").append("<td class='right' >"+$("#ii").val()+"</td>")
+      .append("<td ><a href='#' class='a_css'><img src='cha.jpg'></a></td>")
+      .appendTo($("#tl>tbody"))
+       .find("a").click(function(){
+        $(this).parent().parent().remove();
+      });
+      $("#ii").val("");
+    return false;
+    }
+  })
+  //delete
+   $("#tl>tbody a").click(function(){
+     $(this).parent().parent().remove();
+   })
+
+   $(".right").mouseenter(function(){
+    $("img").show();
+  });
+  $(".right").mouseleave(function(){
+    $("img").hide();
+  });
+
+</script>
+</body>
+</html>
